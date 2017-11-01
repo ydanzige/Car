@@ -7,28 +7,38 @@ using namespace std;
 class Car
 {
 private:
-	string m_make;
-	string m_model;
+	const string m_make;
+	const string m_model;
 	int m_year;
 	int m_engineVolume;
-	string m_color;
-public:
-		
-	Car(string make, string model, int year, int engineVolume, string color) :m_make(make), m_model(model), m_color(color)
-	{
-		SetYear(year);
-		SetEngineVolume(engineVolume);
-	}
+	const string m_color;
 
-	void SetMake(string make);
-	string GetMake();
-	void SetModel(string model);
-	string GetModel();
 	void SetYear(int year);
-	int GetYear();
 	void SetEngineVolume(int vol);
-	int GetEngineVolume();
-	void SetColor(string color);
-	string GetColor();
+public:
+	Car(string make, string model, int year, int engineVolume, string color);
+	const string GetMake()const;
+	const string GetModel()const;
+	const int GetYear()const;
+	const int GetEngineVolume()const;
+	const string GetColor()const;
 
+	/*
+	comper two cars by year
+	params: other car reference to comper with
+	return the bigger car
+	*/
+	const Car ComperByYear(Car &c2)const;
+	/*
+	comper two cars by EnginVolume
+	params: other car reference to comper with
+	return the bigger car
+	*/
+	const Car ComperByEnginVolume(Car &c2)const;
+
+	/*
+	print the details of car
+	*/
+	const void PrintInfoCar()const;
 };
+

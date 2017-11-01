@@ -7,22 +7,18 @@ const int YEAR_MIN = 1900;
 const int ENGIN_MAX = 8000;
 const int ENGINE_MIN = 1300;
 
-void Car::SetMake(string make)
+Car::Car(string make, string model, int year, int engineVolume, string color) :m_make(make), m_model(model), m_color(color)
 {
-	m_make = make;
+	SetYear(year);
+	SetEngineVolume(engineVolume);
 }
 
-string Car::GetMake()
+const string Car::GetMake()const
 {
 	return m_make;
 }
 
-void Car::SetModel(string model)
-{
-	m_model = model;
-}
-
-string Car::GetModel()
+const string Car::GetModel()const
 {
 	return m_model;
 }
@@ -37,7 +33,7 @@ void Car::SetYear(int year)
 	m_year = year;
 }
 
-int Car::GetYear()
+const int Car::GetYear()const
 {
 	return m_year;
 }
@@ -53,29 +49,36 @@ void Car::SetEngineVolume(int vol)
 	m_engineVolume = vol;
 }
 
-int Car::GetEngineVolume()
+
+
+const int Car::GetEngineVolume()const
 {
 	return m_engineVolume;
 }
 
-void Car::SetColor(string color)
-{
-	m_color = color;
-}
-
-string Car::GetColor()
+const string Car::GetColor()const
 {
 	return m_color;
 }
 
-// print the details of car
-void PrintInfoCar(Car c)
+const Car Car::ComperByYear(Car &c2)const
 {
-	cout << "Make: " << c.GetMake() << endl;
-	cout << "Model: " << c.GetModel() << endl;
-	cout << "Year: " << c.GetYear() << endl;
-	cout << "Engin Volume:" << c.GetEngineVolume() << endl;
-	cout << "Color: " << c.GetColor() << endl;
+	return this->GetYear() < c2.GetYear() ? c2 : *this;
+}
+
+const Car Car::ComperByEnginVolume(Car &c2)const
+{
+	return this->GetEngineVolume() < c2.GetEngineVolume() ? c2 : *this;
+}
+
+// print the details of car
+const void Car::PrintInfoCar()const
+{
+	cout << "Make: " << this->GetMake() << endl;
+	cout << "Model: " << this->GetModel() << endl;
+	cout << "Year: " << this->GetYear() << endl;
+	cout << "Engin Volume:" << this->GetEngineVolume() << endl;
+	cout << "Color: " << this->GetColor() << endl;
 	cout << endl;
 }
 
@@ -108,31 +111,13 @@ Car GetCarDitailes()
 	return car;
 }
 
-/*
-comper two cars by year
-params: two car reference
-return the bigger car 
-*/
-Car ComperByYear(Car &c1, Car &c2)
-{
-	return c1.GetYear() < c2.GetYear() ? c2 : c1;
-}
 
-/*
-comper two cars by EnginVolume
-params: two car reference
-return the bigger car
-*/
-Car ComperByEnginVolume(Car &c1, Car &c2)
-{
-	return c1.GetEngineVolume() < c2.GetEngineVolume() ? c2 : c1;
-}
 
 void main()
 {
 	Car car = GetCarDitailes();
-	PrintInfoCar(car);
+	car.PrintInfoCar();
 	Car car2 = GetCarDitailes();
-	PrintInfoCar(ComperByYear(car, car2));
-	PrintInfoCar(ComperByEnginVolume(car, car2));
+	car.ComperByYear(car2).PrintInfoCar();
+	car.ComperByEnginVolume(car2).PrintInfoCar();
 }
