@@ -108,12 +108,22 @@ Car GetCarDitailes()
 	return car;
 }
 
-Car ComperByYear(Car c1, Car c2)
+/*
+comper two cars by year
+params: two car reference
+return the bigger car 
+*/
+Car ComperByYear(Car &c1, Car &c2)
 {
 	return c1.GetYear() < c2.GetYear() ? c2 : c1;
 }
 
-Car ComperByEnginVolume(Car c1, Car c2)
+/*
+comper two cars by EnginVolume
+params: two car reference
+return the bigger car
+*/
+Car ComperByEnginVolume(Car &c1, Car &c2)
 {
 	return c1.GetEngineVolume() < c2.GetEngineVolume() ? c2 : c1;
 }
