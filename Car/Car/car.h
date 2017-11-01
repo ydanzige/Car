@@ -14,7 +14,7 @@ private:
 	string m_color;
 public:
 		
-	Car(string make, string model, int year, int engineVolume, string color) :m_make(make), m_model(model), m_color(color))
+	Car(string make, string model, int year, int engineVolume, string color) :m_make(make), m_model(model), m_color(color)
 	{
 		SetYear(year);
 		SetEngineVolume(engineVolume);
