@@ -7,7 +7,7 @@ const int YEAR_MIN = 1900;
 const int ENGIN_MAX = 8000;
 const int ENGINE_MIN = 1300;
 
-Car::Car(string make, string model, int year, int engineVolume, string color) :m_make(make), m_model(model), m_color(color)
+Car::Car(const string make, const string model, const int year, const int engineVolume, const string color) :m_make(make), m_model(model), m_color(color)
 {
 	SetYear(year);
 	SetEngineVolume(engineVolume);
@@ -23,7 +23,7 @@ const string Car::GetModel()const
 	return m_model;
 }
 
-void Car::SetYear(int year)
+void Car::SetYear(const int year)
 {
 	if (year < YEAR_MIN || year > YEAR_MAX)
 	{
@@ -38,7 +38,7 @@ const int Car::GetYear()const
 	return m_year;
 }
 
-void Car::SetEngineVolume(int vol)
+void Car::SetEngineVolume(const int vol)
 {
 
 	if (vol < ENGINE_MIN || vol > ENGIN_MAX)
@@ -61,12 +61,12 @@ const string Car::GetColor()const
 	return m_color;
 }
 
-const Car Car::ComperByYear(Car &c2)const
+const Car Car::ComperByYear(const Car &c2)const
 {
 	return this->GetYear() < c2.GetYear() ? c2 : *this;
 }
 
-const Car Car::ComperByEnginVolume(Car &c2)const
+const Car Car::ComperByEnginVolume(const Car &c2)const
 {
 	return this->GetEngineVolume() < c2.GetEngineVolume() ? c2 : *this;
 }

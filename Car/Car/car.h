@@ -13,10 +13,10 @@ private:
 	int m_engineVolume;
 	const string m_color;
 
-	void SetYear(int year);
-	void SetEngineVolume(int vol);
+	void SetYear(const int year);
+	void SetEngineVolume(const int vol);
 public:
-	Car(string make, string model, int year, int engineVolume, string color);
+	Car(const string make, const string model, const int year, const int engineVolume, const string color);
 	const string GetMake()const;
 	const string GetModel()const;
 	const int GetYear()const;
@@ -28,13 +28,13 @@ public:
 	params: other car reference to comper with
 	return the bigger car
 	*/
-	const Car ComperByYear(Car &c2)const;
+	const Car ComperByYear(const Car &c2)const;
 	/*
 	comper two cars by EnginVolume
 	params: other car reference to comper with
 	return the bigger car
 	*/
-	const Car ComperByEnginVolume(Car &c2)const;
+	const Car ComperByEnginVolume(const Car &c2)const;
 
 	/*
 	print the details of car
