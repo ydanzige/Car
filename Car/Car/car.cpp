@@ -13,6 +13,10 @@ Car::Car(const string make, const string model, const int year, const int engine
 	SetEngineVolume(engineVolume);
 }
 
+Car::Car(const Car &otherCar):m_make(otherCar.GetMake()),m_model(otherCar.GetModel()),m_year(otherCar.GetYear()),m_engineVolume(otherCar.GetEngineVolume()),m_color(otherCar.GetColor())
+{
+}
+
 const string Car::GetMake()const
 {
 	return m_make;

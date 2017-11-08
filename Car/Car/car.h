@@ -17,6 +17,8 @@ private:
 	void SetEngineVolume(const int vol);
 public:
 	Car(const string make, const string model, const int year, const int engineVolume, const string color);
+	//copy ctor
+	Car(const Car &other);
 	const string GetMake()const;
 	const string GetModel()const;
 	const int GetYear()const;
