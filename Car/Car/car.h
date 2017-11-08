@@ -7,20 +7,26 @@ using namespace std;
 class Car
 {
 private:
+	const size_t m_plateNumber;
 	const string m_make;
 	const string m_model;
 	int m_year;
 	int m_engineVolume;
-	const string m_color;
-
+	const string m_color;	
 	void SetYear(const int year);
 	void SetEngineVolume(const int vol);
+	/*
+	create get and increment the plate number
+	*/
+	static const size_t CreatePlateNumber();
 public:
+	
 	Car(const string make, const string model, const int year, const int engineVolume, const string color);
 	//copy ctor
 	Car(const Car &other);
-	const string GetMake()const;
-	const string GetModel()const;
+	string GetMake()const;
+	string GetModel()const;
+	int GetPlate()const;
 	const int GetYear()const;
 	const int GetEngineVolume()const;
 	const string GetColor()const;

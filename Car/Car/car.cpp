@@ -6,27 +6,39 @@ const int YEAR_MAX = 2018;
 const int YEAR_MIN = 1900;
 const int ENGIN_MAX = 8000;
 const int ENGINE_MIN = 1300;
+const int FIRST_PLATE = 1000001;
 
-Car::Car(const string make, const string model, const int year, const int engineVolume, const string color) :m_make(make), m_model(model), m_color(color)
+
+Car::Car(const string make, const string model, const int year, const int engineVolume, const string color) :m_plateNumber(CreatePlateNumber()), m_make(make), m_model(model), m_color(color)
 {
 	SetYear(year);
 	SetEngineVolume(engineVolume);
 }
 
-Car::Car(const Car &otherCar):m_make(otherCar.GetMake()),m_model(otherCar.GetModel()),m_year(otherCar.GetYear()),m_engineVolume(otherCar.GetEngineVolume()),m_color(otherCar.GetColor())
+Car::Car(const Car &otherCar):m_plateNumber(otherCar.GetPlate()), m_make(otherCar.GetMake()),m_model(otherCar.GetModel()),m_year(otherCar.GetYear()),m_engineVolume(otherCar.GetEngineVolume()),m_color(otherCar.GetColor())
 {
 }
 
-const string Car::GetMake()const
+string Car::GetMake()const
 {
 	return m_make;
 }
 
-const string Car::GetModel()const
+string Car::GetModel()const
 {
 	return m_model;
 }
 
+int Car::GetPlate() const
+{
+	return m_plateNumber;
+}
+
+const size_t Car::CreatePlateNumber()
+{
+	static int plateSeed = FIRST_PLATE;
+	return plateSeed++;
+}
 void Car::SetYear(const int year)
 {
 	if (year < YEAR_MIN || year > YEAR_MAX)
