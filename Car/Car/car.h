@@ -30,17 +30,29 @@ public:
 	params: other car reference to comper with
 	return the bigger car
 	*/
-	const Car ComperByYear(const Car &c2)const;
+	Car ComperByYear(const Car &c2)const;
 	/*
 	comper two cars by EnginVolume
 	params: other car reference to comper with
 	return the bigger car
 	*/
-	const Car ComperByEnginVolume(const Car &c2)const;
+	Car ComperByEnginVolume(const Car &c2)const;
 
 	/*
 	print the details of car
 	*/
 	const void PrintInfoCar()const;
+	/*
+	comper two cars by year
+	params: two cars reference to comper 
+	return the bigger car
+	*/
+	static Car ComperByYear(const Car & c1 ,const Car &c2);
+	/*
+	comper two cars by EnginVolume
+	params: two cars reference to comper with
+	return the bigger car
+	*/
+	static Car ComperByEnginVolume(const Car & c1, const Car &c2);
 };
 

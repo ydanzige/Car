@@ -65,12 +65,12 @@ const string Car::GetColor()const
 	return m_color;
 }
 
-const Car Car::ComperByYear(const Car &c2)const
+Car Car::ComperByYear(const Car &c2)const
 {
 	return this->GetYear() < c2.GetYear() ? c2 : *this;
 }
 
-const Car Car::ComperByEnginVolume(const Car &c2)const
+Car Car::ComperByEnginVolume(const Car &c2)const
 {
 	return this->GetEngineVolume() < c2.GetEngineVolume() ? c2 : *this;
 }
@@ -84,6 +84,16 @@ const void Car::PrintInfoCar()const
 	cout << "Engin Volume:" << this->GetEngineVolume() << endl;
 	cout << "Color: " << this->GetColor() << endl;
 	cout << endl;
+}
+
+Car Car::ComperByYear(const Car & c1, const Car & c2)
+{
+	return c1.GetYear() < c2.GetYear() ? c2 : c1;
+}
+
+Car Car::ComperByEnginVolume(const Car & c1, const Car & c2)
+{
+	return c1.GetEngineVolume() < c2.GetEngineVolume() ? c2 : c1;
 }
 
 /*
