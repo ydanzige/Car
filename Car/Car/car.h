@@ -2,63 +2,65 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string>
-using namespace std;
 
-class Car
-{
-private:
-	const size_t m_plateNumber;
-	const string m_make;
-	const string m_model;
-	int m_year;
-	int m_engineVolume;
-	const string m_color;	
-	void SetYear(const int year);
-	void SetEngineVolume(const int vol);
-	/*
-	create get and increment the plate number
-	*/
-	static const size_t CreatePlateNumber();
-public:
+namespace Car {
 	
-	Car(const string make, const string model, const int year, const int engineVolume, const string color);
-	//copy ctor
-	Car(const Car &other);
-	string GetMake()const;
-	string GetModel()const;
-	int GetPlate()const;
-	const int GetYear()const;
-	const int GetEngineVolume()const;
-	const string GetColor()const;
+	class Car
+	{
+	private:
+		const size_t m_plateNumber;
+		const std::string m_make;
+		const std::string m_model;
+		int m_year;
+		int m_engineVolume;
+		const std::string m_color;
+		void SetYear(const int year);
+		void SetEngineVolume(const int vol);
+		/*
+		create get and increment the plate number
+		*/
+		static const size_t CreatePlateNumber();
+	public:
 
-	/*
-	comper two cars by year
-	params: other car reference to comper with
-	return the bigger car
-	*/
-	Car ComperByYear(const Car &c2)const;
-	/*
-	comper two cars by EnginVolume
-	params: other car reference to comper with
-	return the bigger car
-	*/
-	Car ComperByEnginVolume(const Car &c2)const;
+		Car(const std::string make, const std::string model, const int year, const int engineVolume, const std::string color);
+		//copy ctor
+		Car(const Car &other);
+		std::string GetMake()const;
+		std::string GetModel()const;
+		int GetPlate()const;
+		const int GetYear()const;
+		const int GetEngineVolume()const;
+		const std::string GetColor()const;
 
-	/*
-	print the details of car
-	*/
-	const void PrintInfoCar()const;
-	/*
-	comper two cars by year
-	params: two cars reference to comper 
-	return the bigger car
-	*/
-	static Car ComperByYear(const Car & c1 ,const Car &c2);
-	/*
-	comper two cars by EnginVolume
-	params: two cars reference to comper with
-	return the bigger car
-	*/
-	static Car ComperByEnginVolume(const Car & c1, const Car &c2);
-};
+		/*
+		comper two cars by year
+		params: other car reference to comper with
+		return the bigger car
+		*/
+		Car ComperByYear(const Car &c2)const;
+		/*
+		comper two cars by EnginVolume
+		params: other car reference to comper with
+		return the bigger car
+		*/
+		Car ComperByEnginVolume(const Car &c2)const;
 
+		/*
+		print the details of car
+		*/
+		const void PrintInfoCar()const;
+		/*
+		comper two cars by year
+		params: two cars reference to comper
+		return the bigger car
+		*/
+		static Car ComperByYear(const Car & c1, const Car &c2);
+		/*
+		comper two cars by EnginVolume
+		params: two cars reference to comper with
+		return the bigger car
+		*/
+		static Car ComperByEnginVolume(const Car & c1, const Car &c2);
+	};
+
+}
